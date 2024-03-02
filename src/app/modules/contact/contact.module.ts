@@ -1,28 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { CONTACT_ROUTES } from './contact.routing';
+import { ToolbarModule } from 'primeng/toolbar';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
-import { TableModule } from 'primeng/table';
-import { InputMaskModule } from 'primeng/inputmask';
-import { InputSwitchModule } from 'primeng/inputswitch';
-import { InputTextModule } from 'primeng/inputtext';
-import { InputTextareaModule } from 'primeng/inputtextarea';
-import { InputNumberModule } from 'primeng/inputnumber';
-import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
-import { DropdownModule } from 'primeng/dropdown';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { TooltipModule } from 'primeng/tooltip';
-import { ConfirmationService } from 'primeng/api';
-import { RouterModule } from '@angular/router';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { ContactHomeComponent } from './page/contact-home/contact-home.component';
-import { CONTACT_ROUTES } from './contact.routing';
-
-
-
-
 
 @NgModule({
   declarations: [ContactHomeComponent],
@@ -31,21 +16,10 @@ import { CONTACT_ROUTES } from './contact.routing';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(CONTACT_ROUTES),
-    HttpClientModule,
+    ToolbarModule,
     CardModule,
     ButtonModule,
-    TableModule,
-    InputMaskModule,
-    InputSwitchModule,
-    InputTextModule,
-    InputTextareaModule,
-    InputNumberModule,
-    DynamicDialogModule,
-    DropdownModule,
-    ConfirmDialogModule,
-    TooltipModule
+    SharedModule,
   ],
-  providers: [DialogService, ConfirmationService]
 })
-
-export class ContactModule { }
+export class ContactModule {}

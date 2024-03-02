@@ -17,10 +17,9 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { CookieService } from 'ngx-cookie-service';
 import { MessageService } from 'primeng/api';
-import { ContactHomeComponent } from './modules/contact/page/contact-home/contact-home.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ContactHomeComponent],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
