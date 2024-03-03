@@ -1,20 +1,38 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { environment } from 'src/environments/environments';
+import { BehaviorSubject, Observable, map, take } from 'rxjs';
+import { GetAllContactResponse } from 'src/app/models/interfaces/contact/response/getAllContactsResponse';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ContactDataTransferService {
-  private API_URL = environment.API_URL;
-  private JWT_TOKEN = this.cookie.get('USER_INFO');
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${this.JWT_TOKEN}`,
-    }),
-  };
+  public productsDataEmitter$ =
+    new BehaviorSubject<Array<GetAllContactResponse> | null>(null);
 
-  constructor(private http: HttpClient, private cookie: CookieService) {}
+  public contactContacts: Array<GetAllContactResponse> = [];
+
+  setProductsDatas(products: Array<GetAllContactResponse>): void {
+    if (products) {
+      this.productsDataEmitter$.next(products);
+      this.getContactDatas();
+    }
+  }
+
+  getContactDatas() {
+    this.productsDataEmitter$
+      .pipe(
+        take(1),
+        map((data) => data?.filter((contact) => contact.id != null))
+      )
+      .subscribe({
+        next: (response) => {
+          if (response) {
+            this.contactContacts = response;
+          }
+        },
+      });
+    return this.contactContacts;
+  }
 }
