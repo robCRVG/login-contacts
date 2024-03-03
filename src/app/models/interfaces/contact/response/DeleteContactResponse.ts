@@ -1,8 +1,8 @@
-export interface GetAllContactResponse {
+export interface DeleteContactResponse {
   id: string;
   nome: string;
   email: string;
   telefone: string;
+  foto: string;
   dataCadastro: string;
-  foto: { url: string }
 }

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject, Observable, map, take } from 'rxjs';
-import { GetAllContactResponse } from 'src/app/models/interfaces/contact/response/getAllContactsResponse';
+import { GetAllContactResponse } from 'src/app/models/interfaces/contact/response/GetAllContactsResponse';
 
 @Injectable({
   providedIn: 'root',

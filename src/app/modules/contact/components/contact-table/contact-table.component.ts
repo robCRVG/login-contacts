@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ContactEvent } from 'src/app/models/enums/contacts/ContactEvent';
 import { DeleteContactAction } from 'src/app/models/interfaces/contact/event/DeleteContactAction';
 import { EventAction } from 'src/app/models/interfaces/contact/event/EventAction';
-import { GetAllContactResponse } from 'src/app/models/interfaces/contact/response/getAllContactsResponse';
+import { GetAllContactResponse } from 'src/app/models/interfaces/contact/response/GetAllContactsResponse';
 
 @Component({
   selector: 'app-contact-table',
@@ -20,8 +20,8 @@ export class ContactTableComponent {
 
   handleContactEvent(action: string, id?: string): void {
     if (action && action !== '') {
-      const productEventData = id && id !== '' ? { action, id } : { action };
-      this.contactEvent.emit(productEventData);
+      const contactEventData = id && id !== '' ? { action, id } : { action };
+      this.contactEvent.emit(contactEventData);
     }
   }
 

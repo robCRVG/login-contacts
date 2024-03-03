@@ -1,0 +1,27 @@
+<!--Form novo produto-->
+<div *ngIf="contactAction?.event?.action === addContactAction">
+  <form [formGroup]="addContactForm" (ngSubmit)="handleSubmitAddContact()">
+    <div class="card flex flex-column md:flex-column gap-3">
+      <input pInputText placeholder="Nome" formControlName="nome" />
+      <input pInputText placeholder="Email" formControlName="email" />
+      <input pInputText placeholder="Telefone" formControlName="telefone" />
+      <input pInputText placeholder="Foto" formControlName="foto" />
+      <div class="flex flex-row justify-content-center align-content-center align-items-center m-1">
+        <p-button [disabled]="!addContactForm.valid" type="submit" label="Concluir"></p-button>
+      </div>
+    </div>
+  </form>
+</div>
+<!--Form editar produto-->
+<div *ngIf="contactAction?.event?.action === editContactAction">
+  <form [formGroup]="editContactForm" (ngSubmit)="handleSubmitEditContact()">
+    <div class="card flex flex-column md:flex-column gap-3">
+      <input pInputText placeholder="Nome" formControlName="nome">
+      <input pInputText placeholder="Email" formControlName="email">
+      <input pInputText placeholder="Telefone" formControlName="telefone">
+      <div class="flex flex-row justify-content-center align-content-center align-items-center">
+        <p-button [disabled]="!editContactForm.valid" type="submit" label="Concluir"></p-button>
+      </div>
+    </div>
+  </form>
+</div>
