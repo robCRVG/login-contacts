@@ -8,20 +8,20 @@ import { GetAllContactResponse } from 'src/app/models/interfaces/contact/respons
   providedIn: 'root',
 })
 export class ContactDataTransferService {
-  public productsDataEmitter$ =
+  public contactsDataEmitter$ =
     new BehaviorSubject<Array<GetAllContactResponse> | null>(null);
 
   public contactContacts: Array<GetAllContactResponse> = [];
 
-  setProductsDatas(products: Array<GetAllContactResponse>): void {
-    if (products) {
-      this.productsDataEmitter$.next(products);
+  setContactDatas(contacts: Array<GetAllContactResponse>): void {
+    if (contacts) {
+      this.contactsDataEmitter$.next(contacts);
       this.getContactDatas();
     }
   }
 
   getContactDatas() {
-    this.productsDataEmitter$
+    this.contactsDataEmitter$
       .pipe(
         take(1),
         map((data) => data?.filter((contact) => contact.id != null))

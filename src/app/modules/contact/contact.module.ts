@@ -19,9 +19,10 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { TooltipModule } from 'primeng/tooltip';
+import { ContactTableComponent } from './components/contact-table/contact-table.component';
 
 @NgModule({
-  declarations: [ContactHomeComponent],
+  declarations: [ContactHomeComponent, ContactTableComponent],
   imports: [
     CommonModule,
     FormsModule,

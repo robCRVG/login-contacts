@@ -4,4 +4,5 @@ export interface GetAllContactResponse {
   email: string;
   telefone: string;
   dataCadastro: string;
+  foto: { url: string }
 }

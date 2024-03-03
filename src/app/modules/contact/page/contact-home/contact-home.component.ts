@@ -11,7 +11,6 @@ import { ContactService } from 'src/app/services/contact/contact.service';
 })
 export class ContactHomeComponent implements OnInit {
   private destroy$ = new Subject<void>();
-
   public contactList: Array<GetAllContactResponse> = [];
 
   constructor(
