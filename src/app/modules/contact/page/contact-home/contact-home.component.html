@@ -2,6 +2,7 @@
 <app-contact-table
   [contacts]="contactList"
   (contactEvent)="handleContactAction($event)"
-  (deleteContactEvent)="handleDeleteContactAction($event)">
+  (deleteContactEvent)="handleDeleteContactAction($event)"
+  (eventContactById)="handleContactByIdAction($event)">
 </app-contact-table>
 <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>

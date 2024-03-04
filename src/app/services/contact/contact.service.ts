@@ -1,4 +1,8 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable, catchError, map, retry, throwError } from 'rxjs';
@@ -36,7 +40,7 @@ export class ContactService {
       {
         ...this.httpOptions,
         params: {
-          id: idContato,
+          idContato: idContato,
         },
       }
     );
@@ -60,16 +64,15 @@ export class ContactService {
     );
   }
 
-  handleError(error: HttpErrorResponse) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      // Erro ocorreu no lado do client
-      errorMessage = error.error.message;
-    } else {
-      // Erro ocorreu no lado do servidor
-      errorMessage = `Código do erro: ${error.status}, ` + `menssagem: ${error.message}`;
-    }
-    console.log(errorMessage);
-    return throwError(errorMessage);
-  };
+  getContactsById(idContato: any): Observable<Array<GetAllContactResponse>> {
+    return this.httpClient.get<Array<GetAllContactResponse>>(
+      `${this.API_URL}/Contatos/GetContatoById`,
+      {
+        ...this.httpOptions,
+        params: {
+          idContato: idContato,
+        },
+      }
+    );
+  }
 }

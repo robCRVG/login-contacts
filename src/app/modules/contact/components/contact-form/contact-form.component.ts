@@ -43,7 +43,6 @@ export class ContactFormComponent implements OnInit, OnDestroy {
   constructor(
     private formBuilder: FormBuilder,
     private messageService: MessageService,
-    private router: Router,
     private contactService: ContactService,
     public ref: DynamicDialogConfig,
     private contactDtService: ContactDataTransferService,

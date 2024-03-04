@@ -24,7 +24,11 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
 import { ConfirmationService } from 'primeng/api';
 
 @NgModule({
-  declarations: [ContactHomeComponent, ContactTableComponent, ContactFormComponent],
+  declarations: [
+    ContactHomeComponent,
+    ContactTableComponent,
+    ContactFormComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -46,8 +50,8 @@ import { ConfirmationService } from 'primeng/api';
     DynamicDialogModule,
     DropdownModule,
     ConfirmDialogModule,
-    TooltipModule
+    TooltipModule,
   ],
-  providers: [DialogService, ConfirmationService, DatePipe]
+  providers: [DialogService, ConfirmationService, DatePipe],
 })
 export class ContactModule {}
