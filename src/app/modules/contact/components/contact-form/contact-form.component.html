@@ -5,7 +5,7 @@
       <input pInputText placeholder="Nome" formControlName="nome" />
       <input pInputText placeholder="Email" formControlName="email" />
       <input pInputText placeholder="Telefone" formControlName="telefone" />
-      <input pInputText placeholder="Foto" formControlName="foto" />
+      <p-fileUpload mode="basic" chooseLabel="Choose" formControlName="foto" name="foto" accept="image/*" [auto]="true" (onUpload)="onUpload($event)"></p-fileUpload>
       <div class="flex flex-row justify-content-center align-content-center align-items-center m-1">
         <p-button [disabled]="!addContactForm.valid" type="submit" label="Concluir"></p-button>
       </div>

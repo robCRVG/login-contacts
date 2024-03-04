@@ -164,6 +164,10 @@ export class ContactFormComponent implements OnInit, OnDestroy {
       });
   }
 
+  onUpload(event: Event): void{
+
+  }
+
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();

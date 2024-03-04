@@ -22,6 +22,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ContactTableComponent } from './components/contact-table/contact-table.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { ConfirmationService } from 'primeng/api';
+import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ConfirmationService } from 'primeng/api';
     DropdownModule,
     ConfirmDialogModule,
     TooltipModule,
+    FileUploadModule
   ],
   providers: [DialogService, ConfirmationService, DatePipe],
 })
