@@ -25,7 +25,6 @@ export class ContactHomeComponent implements OnInit {
     private messageServiice: MessageService,
     private confirmationService: ConfirmationService,
     private dialogService: DialogService
-
   ) {}
 
   ngOnInit(): void {

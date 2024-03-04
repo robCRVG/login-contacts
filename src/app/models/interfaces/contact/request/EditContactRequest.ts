@@ -1,8 +1,8 @@
 export interface EditContactRequest {
+  id: string;
   nome: string;
   email: string;
   telefone: string;
-  id: string;
-  foto: string ;
+  foto: string;
   dataCadastro: string;
 }

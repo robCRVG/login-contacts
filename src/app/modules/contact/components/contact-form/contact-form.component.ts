@@ -100,12 +100,12 @@ export class ContactFormComponent implements OnInit, OnDestroy {
       this.contactAction.event.id
     ) {
       const reequestEditContact: EditContactRequest = {
+        id: this.contactAction.event.id,
         nome: this.editContactForm.value.nome as string,
         email: this.editContactForm.value.email as string,
         telefone: this.editContactForm.value.telefone as string,
-        id: this.contactAction.event.id,
         foto: "",
-        dataCadastro: this.getDataCadastro(),
+        dataCadastro: "2023-08-28T00:00:00",
       };
       this.contactService
         .editContact(reequestEditContact)

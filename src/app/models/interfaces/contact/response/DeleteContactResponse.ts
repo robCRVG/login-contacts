@@ -1,5 +1,5 @@
 export interface DeleteContactResponse {
-  id: string;
+  idContact: string;
   nome: string;
   email: string;
   telefone: string;

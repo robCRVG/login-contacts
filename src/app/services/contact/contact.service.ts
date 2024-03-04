@@ -1,7 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, retry, throwError } from 'rxjs';
 import { CreateContactRequest } from 'src/app/models/interfaces/contact/request/CreateContactRequest';
 import { EditContactRequest } from 'src/app/models/interfaces/contact/request/EditContactRequest';
 import { DeleteContactResponse } from 'src/app/models/interfaces/contact/response/DeleteContactResponse';
@@ -16,7 +16,7 @@ export class ContactService {
   private JWT_TOKEN = this.cookie.get('USER_INFO');
   private httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json; charset=utf-8',
       Authorization: `Bearer ${this.JWT_TOKEN}`,
     }),
   };
@@ -52,13 +52,24 @@ export class ContactService {
     );
   }
 
-  editContact(
-    requestDatas: EditContactRequest
-  ): Observable<void> {
+  editContact(requestDatas: EditContactRequest): Observable<void> {
     return this.httpClient.put<void>(
-      `${this.API_URL}/contact/edit`,
+      `${this.API_URL}/Contatos/UpdateContato`,
       requestDatas,
       this.httpOptions
     );
   }
+
+  handleError(error: HttpErrorResponse) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // Erro ocorreu no lado do client
+      errorMessage = error.error.message;
+    } else {
+      // Erro ocorreu no lado do servidor
+      errorMessage = `Código do erro: ${error.status}, ` + `menssagem: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(errorMessage);
+  };
 }
